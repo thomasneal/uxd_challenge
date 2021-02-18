@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+$light_blue_grey:#E0E7F1;
+$light_grey:     #E5E5E5;
+$grey:           #526275;
+$dark_grey:      #263240;
+$green:          #23856D;
+$white:          #FFFFFF;
+$blue:           #159CE4;
+
+$font-family: 'Montserrat', sans-serif;
+
+@mixin focus-shadow {
+  outline: none;
+  box-shadow: 0 0 0 4px $blue;
+}
+
+html {
+  background-color: $light_grey;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0 0;
+  font-family: $font-family;
+}
+
+.scheduled_meeting_card_list {
+  list-style: none;
+  padding: 0;
+}
+
+.scheduled_meeting_card {
+  box-sizing: border-box;
+  background-color: $white;
+  display: flex;
+  border-radius: 6px;
+  border: 1px solid $light_blue_grey;
+  border-left: 4px solid $green;
+  color: $dark_grey;
+
+  &:focus-within {
+    @include focus-shadow;
+  }
+
+  & a:focus {
+    text-decoration: underline;
+  }
+
+  &:focus-within a:focus {
+    text-decoration: none;
+    outline: none;
+  }
+
+  @media screen and (max-width: 420px) {
+    width: auto;
+    height: auto;
+    padding: 8px 8px;
+    display: block;
+    text-align: center;
+  }
+  
+  @media screen and (min-width: 421px) {
+    width: 400px;
+    height: 156px;
+    padding: 9px 12px;
+  }
+
+  @media screen and (min-width: 769px) {
+    width: 688px;
+    height: 116px;
+    padding: 18px 24px;
+    align-items: center;
+  }
+
+}
+
+.scheduled_meeting_card__image {
+  width: 80px;
+  height: 80px;
+
+  @media screen and (max-width: 420px) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 5px;
+  }
+}
+
+.scheduled_meeting_card__details {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: .2px;
+  align-items: center;
+  color: $grey;
+
+  @media screen and (max-width: 420px) {
+    margin: 10px 0;
+  }
+
+  @media screen and (min-width: 421px) and (max-width: 768px) {
+    margin: 0 6px 0 18px;
+  }
+
+  @media screen and (min-width: 769px) {
+    margin: 0 24px;
+  }
+}
+
+
+.scheduled_meeting_card__title {
+  flex-basis: 100%;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: .3px;
+  color: $dark_grey;
+
+  @media screen and (max-width: 420px) {
+    margin: 5px 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: 0 0 8px;
+    line-height: 24px;
+  }
+}
+
+.scheduled_meeting_card__duration {
+  @media screen and (max-width: 420px) {
+    margin: 10px 0;
+  }
+
+  @media screen and (min-width: 421px) and (max-width: 767px) {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-basis: 100%;
+  }
+
+  @media screen and (min-width: 769px) {
+    margin: 0 0 8px 4.25px;
+  }
+}
+
+.scheduled_meeting_card__time {
+  span::before {
+    content: "•";
+    margin-right:4px;
+  }
+
+  @media screen and (max-width: 420px) {
+    margin: 10px 0;
+  }
+
+  @media screen and (min-width: 421px) and (max-width: 767px) {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 0;
+    flex-basis: 100%;
+  }
+
+  @media screen and (min-width: 769px) {
+    margin: 0 0 8px 24px;
+  }
+}
+
+.scheduled_meeting_card__link {
+  text-decoration: none;
+  color: $grey;
+  flex-basis: 100%;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    display: block;
+  }
+
+  &:hover, &:visited, &:focus {
+    color: $blue;
+  }
+
+  @media screen and (max-width: 420px) {
+    margin: 10px 0;
+  }
+
+  @media screen and (min-width: 421px) and (max-width: 768px) {
+    margin: 0;
+  }
+
+  @media screen and (min-width: 769px) {
+    margin: 0 0 0 4px;
+  }
+}
+
+.scheduled_meeting_card__options {
+  border: none;
+  background-color: $white;
+  padding: 0;
+
+  &:hover {
+    cursor: pointer;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      @include focus-shadow;
+    }
+  }
+
+  &:focus {
+   @include focus-shadow;
+  }
+
+  img:hover {
+    filter: invert(70%) sepia(88%) saturate(4245%) hue-rotate(170deg) brightness(92%) contrast(93%);
+  }
+}
+
+.icon {
+  position: relative;
+  top:3px;
+  margin-right: 8px;
+}
+
